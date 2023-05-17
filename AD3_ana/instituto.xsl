@@ -13,15 +13,34 @@
                 background-color: rgb(118, 97, 200 );
                 padding-left: 2%; 
                 }
+                table {
+                border: purple 5px solid;
+                }
+                th, td {
+                width: 25%;
+                text-align: center;
+                vertical-align: top;
+                border: 1px solid #000;
+                border-collapse: collapse;
+                padding: 0.3em;
+                }
+                caption {
+                padding: 0.3em;
+                }
+                .padding1 {
+               border: 1px solid rgb(0, 0, 0);
+               background-color: rgb(181, 171, 184);
+               padding: 10px;
+               margin-bottom: 5px;
+                }
             </style>
             <head>
                 <title>Edix</title>
             </head>
-
             <body>
                 <h1>Edix</h1>
-                <br/>
-                <h3>Contacto</h3>
+                <h3><a href="https://www.edix.com/es/comunidad/deeptech2023/">Contacta </a>con nosotros mediante el formulario.</h3>
+                O si lo prefieres nos puedes llamar al teléfono: 
                 <xsl:value-of select="ite/telefono"/>
                 <h2>Ciclos formativos</h2>
                 <table>
@@ -31,22 +50,29 @@
                         <th>Grado</th>
                     </tr>
                      <tr>
-                        <td><xsl:value-of select="ite/ciclo[1]/@id"/></td>
+                        <td><xsl:value-of select="ite/ciclos/ciclo[1]/@id"/></td>
                         <td><xsl:value-of select="ite/ciclos/ciclo[1]/nombre"/></td>
                         <td><xsl:value-of select="ite/ciclos/ciclo[1]/grado"/></td>
                     </tr>
                      <tr>
-                        <td><xsl:value-of select="ite/ciclos/ciclo[1]/nombre"/></td>
+                        <td><xsl:value-of select="ite/ciclos/ciclo[2]/@id"/></td>
                         <td><xsl:value-of select="ite/ciclos/ciclo[2]/nombre"/></td>
-                        <td><xsl:value-of select="ite/ciclos/ciclo[3]/nombre"/></td>
+                        <td><xsl:value-of select="ite/ciclos/ciclo[2]/grado"/></td>
                     </tr>
                      <tr>
-                        <td><xsl:value-of select="ite/ciclos/ciclo[1]/grado"/></td>
-                        <td><xsl:value-of select="ite//ciclos/ciclo[2]/grado"/></td>
+                        <td><xsl:value-of select="ite/ciclos/ciclo[3]/@id"/></td>
+                        <td><xsl:value-of select="ite//ciclos/ciclo[2]/nombre"/></td>
                         <td><xsl:value-of select="ite/ciclos/ciclo[3]/grado"/></td>
                     </tr>
                 </table>    
                 <br/>
+                <h3>Formación</h3>
+                <table>
+                    <tr>
+                        <th><a href="https://www.edix.com/es/cursos/">Cursos</a></th>
+                        <th><a href="https://www.edix.com/es/cursos/">Bootcamps</a></th>
+                    </tr>
+                </table>
                 <h2>Profesorado</h2> 
                 <ol>
                     <li><xsl:value-of select="ite/profesores/profesor[1]/nombre"/></li>
@@ -56,37 +82,60 @@
                 </ol>
                 <br/>
                 <h2>Dirección estudiantil</h2>
-                <ol type="circle">
-                    <li>Director</li>
-                    <li><xsl:value-of select="ite/director/nombre"/></li>
-                    <li><xsl:value-of select="ite/director/despacho"/></li>
-                </ol>
-                <ol type="circle">
-                    <li>Jefe de estudios</li>
-                    <li><xsl:value-of select="ite/jefe_estudios/nombre"/></li>
-                    <li><xsl:value-of select="ite/director/despacho"/></li>
-                </ol>
+                <dl>
+                    <dt>Director</dt>
+                        <dd>
+                            <ul>
+                                <li>Nombre: <xsl:value-of select="ite/director/nombre"/></li>
+                                <li>Despacho: <xsl:value-of select="ite/director/despacho"/></li>
+                            </ul>
+                        </dd>
+                </dl>
+               <dl>
+                    <dt>Jefe de estudios</dt>
+                        <dd>
+                            <ul>
+                                <li>Nombre: <xsl:value-of select="ite/jefe_estudios/nombre"/></li>
+                                <li>Despacho: <xsl:value-of select="ite/director/despacho"/></li>
+                            </ul>
+                        </dd>
+                </dl>
                 <br/>
                 <h1>Matrícula</h1>
+                <div class="padding1">
                 <form action="procesarPeticion.jsp" method="get">
                     <fieldset>
-                        <legend>Registro matrícula</legend>
+                        <legend><h3>Datos personales:</h3></legend>
+                        <br/>
+                        <label for="sexo"></label>
+                        <input type="radio" name="sexo" value="S"/>Hombre
+                        <input type="radio" name="sexo" value="C"/>Mujer	
+                        <input type="radio" name="sexo" value="V"/>Otros	
+                        <br/>
+                        <br/>
                         <label for="nombre">Nombre: </label>
                         <input id="nombre" type="text" name="nombre"/>
                         <br/>
                         <label for="apellidos">Apellidos: </label>
                         <input id="apellidos" type="text" name="apellidos"/>
                         <br/>
-                        <label for="sexo"></label>
-                        <input type="radio" name="sexo" value="S"/>Hombre
-                        <input type="radio" name="sexo" value="C"/>Mujer	
-                        <input type="radio" name="sexo" value="V"/>Otros	
-                        <br />
+                        <br/>
                         <label for="date">Fecha de nacimiento</label>
                         <input type="date"/>
                         <br/>
+                        <br/>
+                        <label for="dni">Dni: </label>
+                        <input id="dni" type="text" name="dni" />
+                        <br/>
+                        <br/>
+                        <label for="direccion">Dirección: </label>
+                        <input id="direccion" type="text" name="direccion" />
+                        <br/>
+                        <br/>
+                        <label for="email">Email: </label>
+                        <input id="email" type="email" name="email"/>
                         <label for="pass">Password: </label>
-                        <input id="pass" type="password" name="pass" />
+                        <input id="pass" type="password" name="pass"/>
                         <br/>
                         <input id="identificador" type="hidden" name="identificador" value="123"/>
                         <br/>
@@ -119,6 +168,7 @@
                         <input type="reset" value="Borrar datos" />
                     </fieldset>
                 </form>
+                </div>
             </body>
         </html>
     </xsl:template>	
