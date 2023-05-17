@@ -4,6 +4,7 @@
         <html>
         <style>
     table {
+        
         border-collapse: collapse;
     }
     thead{
