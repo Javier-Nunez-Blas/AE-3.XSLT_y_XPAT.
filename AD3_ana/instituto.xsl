@@ -7,16 +7,16 @@
                 <title>Edix</title>
             </head>
             <style>
-
+                118, 97, 200  
                 h1{
                 color:white;
-                background-color: rgb(181, 171,184);
+                background-color: rgb(118, 97, 200);
                 padding-left: 2%; 
                 }   
 
                 h2{
                 color:white;
-                background-color: rgb(181, 171,184);
+                background-color: rgb(118, 97, 200 );
                 padding-left: 2%; 
                 }
                 
@@ -77,6 +77,9 @@
                 
                         <label for="nombre">Nombre: </label>
                         <input id="nombre" type="text" name="nombre"/>
+                        <br/>
+                        <label for="apellidos">Apellidos: </label>
+                        <input id="apellidos" type="text" name="apellidos"/>
                         <br/>
                         <label for="sexo"></label>
                         <input type="radio" name="sexo" value="S"/>Hombre
