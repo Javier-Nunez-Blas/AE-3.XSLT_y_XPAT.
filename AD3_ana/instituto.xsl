@@ -1,31 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
 	<xsl:template match="/">
         <html>
-            <head>
-                <title>Edix</title>
-            </head>
-            <style>
-                118, 97, 200  
+             <style>
                 h1{
                 color:white;
                 background-color: rgb(118, 97, 200);
                 padding-left: 2%; 
-                }   
-
+                }
                 h2{
                 color:white;
                 background-color: rgb(118, 97, 200 );
                 padding-left: 2%; 
                 }
-                
             </style>
+            <head>
+                <title>Edix</title>
+            </head>
+
             <body>
                 <h1>Edix</h1>
                 <br/>
                 <h3>Contacto</h3>
-                <xsl:value-of select="telefono"/>
+                <xsl:value-of select="ite/telefono"/>
                 <h2>Ciclos formativos</h2>
                 <table>
                     <tr>
@@ -34,28 +31,28 @@
                         <th>Grado</th>
                     </tr>
                      <tr>
-                        <td><xsl:value-of select="ite/ciclo[1]@id"/></td>
-                        <td><xsl:value-of select="ite/ciclo[2]@id"/></td>
-                        <td><xsl:value-of select="ite/ciclo[3]@id"/></td>
+                        <td><xsl:value-of select="ite/ciclo[1]/@id"/></td>
+                        <td><xsl:value-of select="ite/ciclos/ciclo[1]/nombre"/></td>
+                        <td><xsl:value-of select="ite/ciclos/ciclo[1]/grado"/></td>
                     </tr>
                      <tr>
-                        <td><xsl:value-of select="ite/ciclo/ciclos[1]/nombre"/></td>
-                        <td><xsl:value-of select="ite/ciclo/ciclos[2]/nombre"/></td>
-                        <td><xsl:value-of select="ite/ciclo/ciclos[3]/nombre"/></td>
+                        <td><xsl:value-of select="ite/ciclos/ciclo[1]/nombre"/></td>
+                        <td><xsl:value-of select="ite/ciclos/ciclo[2]/nombre"/></td>
+                        <td><xsl:value-of select="ite/ciclos/ciclo[3]/nombre"/></td>
                     </tr>
                      <tr>
-                        <td><xsl:value-of select="ite/ciclo/ciclos[1]/grado"/></td>
-                        <td><xsl:value-of select="ite//ciclo/ciclos[2]/grado"/></td>
-                        <td><xsl:value-of select="ite/ciclo/ciclos[3]/grado"/></td>
+                        <td><xsl:value-of select="ite/ciclos/ciclo[1]/grado"/></td>
+                        <td><xsl:value-of select="ite//ciclos/ciclo[2]/grado"/></td>
+                        <td><xsl:value-of select="ite/ciclos/ciclo[3]/grado"/></td>
                     </tr>
                 </table>    
                 <br/>
                 <h2>Profesorado</h2> 
                 <ol>
-                    <li><xsl:value-of select="ite/profesores/profesor@1/nombre"/></li>
-                    <li><xsl:value-of select="ite/profesores/profesor@2/nombre"/></li>
-                    <li><xsl:value-of select="ite/profesores/profesor@3/nombre"/></li>
-                    <li><xsl:value-of select="ite/profesores/profesor@4/nombre"/></li>
+                    <li><xsl:value-of select="ite/profesores/profesor[1]/nombre"/></li>
+                    <li><xsl:value-of select="ite/profesores/profesor[2]/nombre"/></li>
+                    <li><xsl:value-of select="ite/profesores/profesor[3]/nombre"/></li>
+                    <li><xsl:value-of select="ite/profesores/profesor[4]/nombre"/></li>
                 </ol>
                 <br/>
                 <h2>Dirección estudiantil</h2>
@@ -74,7 +71,6 @@
                 <form action="procesarPeticion.jsp" method="get">
                     <fieldset>
                         <legend>Registro matrícula</legend>
-                
                         <label for="nombre">Nombre: </label>
                         <input id="nombre" type="text" name="nombre"/>
                         <br/>
@@ -94,7 +90,7 @@
                         <br/>
                         <input id="identificador" type="hidden" name="identificador" value="123"/>
                         <br/>
-                        <label for="nivel_estudios">Nivel de </label>
+                        <label for="nivel_estudios">Nivel de estudios:</label>
                         <br />	
                         <input type="checkbox" name="nivel_estudios" value="S" />Educación Secundaria Obligatoria<br />	
                         <input type="checkbox" name="nivel_estudios" value="B" />Bachillerato<br />	
@@ -107,7 +103,7 @@
                             <option value="DAW">DAW</option>
                             <option value="DAM">DAM</option>
                         </select>
-                        <br />
+                        <br/>
                         <br/>
                         <label for="observaciones">Observaciones: </label>
                         <br />	
@@ -119,8 +115,8 @@
                         He leido y acepto los terminos de uso <input type="checkbox" name="terminos" value="Y" />
                         <br/>	
                         <br/>	
-                        <input type="submit" value="Enviar datos" />
-                        <input type="reset" value="Limpiar formulario" />
+                        <input type="submit" value="Enviar formulario" />
+                        <input type="reset" value="Borrar datos" />
                     </fieldset>
                 </form>
             </body>
