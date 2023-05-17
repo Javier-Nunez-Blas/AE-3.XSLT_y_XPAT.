@@ -25,7 +25,7 @@
                 <h1>Edix</h1>
                 <br/>
                 <h3>Contacto</h3>
-                <xsl:value-of select="telefono">
+                <xsl:value-of select="telefono"/>
                 <h2>Ciclos formativos</h2>
                 <table>
                     <tr>
@@ -81,10 +81,10 @@
                         <label for="sexo"></label>
                         <input type="radio" name="sexo" value="S"/>Hombre
                         <input type="radio" name="sexo" value="C"/>Mujer	
-                        <input type="radio" name="sexo" value="V"checked/>Otros	
+                        <input type="radio" name="sexo" value="V"/>Otros	
                         <br />
                         <label for="date">Fecha de nacimiento</label>
-                        <input type="date">
+                        <input type="date"/>
                         <br/>
                         <label for="pass">Password: </label>
                         <input id="pass" type="password" name="pass" />
@@ -95,14 +95,14 @@
                         <br />	
                         <input type="checkbox" name="nivel_estudios" value="S" />Educación Secundaria Obligatoria<br />	
                         <input type="checkbox" name="nivel_estudios" value="B" />Bachillerato<br />	
-                        <input type="checkbox" name="nivel_estudios" value="P" checked/>Formación profesional<br />	
+                        <input type="checkbox" name="nivel_estudios" value="P" />Formación profesional<br />	
                         <input type="checkbox" name="nivel_estudios" value="U" />Ensañanzas universitarias<br />	
                         <br/>
                         <label for="ciclos_formativos">Seleccione el ciclo en el que desea inscribirse: </label>
                         <select name="dia_nacimiento">
                             <option value="ASI">ASIR</option>
                             <option value="DAW">DAW</option>
-                            <option value="DAM" selected>DAM</option>
+                            <option value="DAM">DAM</option>
                         </select>
                         <br />
                         <br/>
