@@ -112,7 +112,7 @@
                     <li><xsl:value-of select="ite/ciclos/ciclo[2]/@id"/></li>
                     <li><xsl:value-of select="ite/ciclos/ciclo[3]/@id"/></li>
                 </ul>
-                <a href="www.accede.com">Accede a nuestra pagina principla</a><br/>
+                <a href="{/ite/@web}"><xsl:value-of select="/ite/@web"/></a><br/>
                 <a href="www.apuntate.com">Apuntate a nuestros cursos aqui</a><br/><br/>
                 <form action="procesarPeticion.jsp" method="post">
                     <fieldset>
