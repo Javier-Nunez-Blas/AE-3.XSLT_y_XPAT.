@@ -47,6 +47,9 @@
                     <li>
                         <a href="https://www.edix.com/es/revolucion-profesional/">Bootcamps</a>
                     </li>
+                    <li>
+                        <a href=" https://www.edix.com/es/cursos-fp/">Cursos</a>
+                    </li>
                 </ul>
 
                 <h2>Profesores:</h2>
