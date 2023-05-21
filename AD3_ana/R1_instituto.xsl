@@ -96,7 +96,7 @@
                         <dd>
                             <ul>
                                 <li>Nombre: <xsl:value-of select="ite/jefe_estudios/nombre"/></li>
-                                <li>Despacho: <xsl:value-of select="ite/director/despacho"/></li>
+                                <li>Despacho: <xsl:value-of select="ite/jefe_estudios/despacho"/></li>
                             </ul>
                         </dd>
                 </dl>
